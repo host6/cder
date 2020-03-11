@@ -9,7 +9,6 @@ fi
 echo "Building cder..."
 go build
 echo "Logging in to dockerhub"
-set
 echo ${DOCKER_USERNAME}, ${DOCKER_PASSWORD}, ${VER}
 docker login --username "${DOCKER_USERNAME}" --password "${DOCKER_PASSWORD}"
 echo "Creating docker images..."
