@@ -16,8 +16,8 @@ jobs:
         run: echo ::set-output name=tag::${GITHUB_REF:10}
       - name: Running bash script
         env:
-          login: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
+          docker_username: ${{ secrets.DOCKER_USERNAME }}
+          docker_password: ${{ secrets.DOCKER_PASSWORD }}
           ver: ${{ steps.vars.outputs.tag }}
         run: |
           bash build.sh
