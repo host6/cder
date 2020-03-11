@@ -18,3 +18,6 @@ echo "Pushing images..."
 #docker push "${DOCKER_USERNAME}"/cder:v"$VER"
 #echo 'Changing ver in compose file'
 #sed -i "s/\(cdernode:\)\(.*\)/\$VER/" ./node/docker-compose.yml
+
+
+
