@@ -2,7 +2,7 @@ FROM node:10.16.1
 
 USER root
 RUN mkdir /cder
-COPY cder/cder /cder/cder
+COPY cder /cder/cder
 COPY node/deploy.sh /cder/deploy.sh
 RUN chmod 777 /cder/cder
 RUN chmod 777 /cder/deploy.sh

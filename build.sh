@@ -9,7 +9,6 @@ fi
 echo "Building cder..."
 go build
 echo "Logging in to dockerhub"
-echo ${DOCKER_USERNAME}, ${DOCKER_PASSWORD}, ${VER}
 docker login --username "${DOCKER_USERNAME}" --password "${DOCKER_PASSWORD}"
 echo "Creating docker images..."
 docker build -t "${DOCKER_USERNAME}"/cdernode:v"${VER}" -f ./node/Dockerfile .
