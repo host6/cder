@@ -21,3 +21,4 @@ jobs:
           VER: 1.0
         run: |
           bash build.sh
+
