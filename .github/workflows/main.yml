@@ -3,7 +3,7 @@ name: Test build.sh
 on: [push]
   push:
     tags:
-    - 'v*'
+      - 'v*'
 
 jobs:
   build:
