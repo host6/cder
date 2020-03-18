@@ -1,4 +1,4 @@
-module github.com/untillpro/cder-new
+module github.com/untillpro/cder
 
 go 1.13
 
