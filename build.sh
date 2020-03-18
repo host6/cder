@@ -15,6 +15,7 @@ go build
 echo "Logging in to dockerhub"
 docker login --username "${DOCKER_USERNAME}" --password "${DOCKER_PASSWORD}"
 echo "Checking dockerhub images existance"
+echo ${VER}
 if docker_tag_exists "${DOCKER_USERNAME}"/cdernode v"${VER}"; then
     echo "${DOCKER_USERNAME}"/cdernode v"${VER}" already exists on dockerhub. Version is not bumped?
     exit 1

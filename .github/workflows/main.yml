@@ -18,7 +18,7 @@ jobs:
         env:
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-          VER: 1.0
+          VER: ${{ steps.branch_name.outputs.SOURCE_TAG }}
         run: |
           bash build.sh
 
