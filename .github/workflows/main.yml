@@ -18,6 +18,6 @@ jobs:
         env:
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-          VER: 1.3
+          VER: 1.0
         run: |
           bash build.sh
