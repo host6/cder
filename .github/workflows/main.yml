@@ -18,7 +18,7 @@ jobs:
         env:
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-          VER: ${GITHUB_REF/refs\/tags\//}
+          VER: ${{ GITHUB_REF/refs\/tags\// }}
         run: |
           bash build.sh
 
