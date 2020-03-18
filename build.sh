@@ -6,10 +6,23 @@ if [[ ${VER} == *"SNAPSHOT"* ]]; then
   exit 1
 fi
 
+function docker_tag_exists() {
+    curl --silent -f -lSL https://index.docker.io/v1/repositories/$1/tags/$2 > /dev/null
+}
+
 echo "Building cder..."
 go build
 echo "Logging in to dockerhub"
 docker login --username "${DOCKER_USERNAME}" --password "${DOCKER_PASSWORD}"
+echo "Checking dockerhub images existance"
+if docker_tag_exists "${DOCKER_USERNAME}"/cdernode v"${VER}"; then
+    echo "${DOCKER_USERNAME}"/cdernode v"${VER}" already exists on dockerhub. Version is not bumped?
+    exit 1
+fi
+if docker_tag_exists "${DOCKER_USERNAME}"/cder v"${VER}"; then
+    echo "${DOCKER_USERNAME}"/cder v"${VER}" already exists on dockerhub. Version is not bumped?
+    exit 1
+fi    
 echo "Creating docker images..."
 docker build -t "${DOCKER_USERNAME}"/cdernode:v"${VER}" -f ./node/Dockerfile .
 docker build -t "${DOCKER_USERNAME}"/cder:v"${VER}" -f ./go/Dockerfile .
