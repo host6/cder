@@ -1,8 +1,8 @@
 #!/bin/bash
 set -e
 
-if [[ $VER == "SNAPSHOT" ]]; then
-  echo "Version can't contain SNAPSHOT: $VER"
+if [[ ${VER} == *"SNAPSHOT"* ]]; then
+  echo "Version can't contain SNAPSHOT: ${VER}"
   exit 1
 fi
 
@@ -15,10 +15,7 @@ echo "Creating docker images..."
 docker build -t "${DOCKER_USERNAME}"/cdernode:v"${VER}" -f ./node/Dockerfile .
 docker build -t "${DOCKER_USERNAME}"/cder:v"${VER}" -f ./go/Dockerfile .
 echo "Pushing images..."
-#docker push "${DOCKER_USERNAME}"/cdernode:v"$VER"
-#docker push "${DOCKER_USERNAME}"/cder:v"$VER"
+#docker push "${DOCKER_USERNAME}"/cdernode:v"${VER}"
+#docker push "${DOCKER_USERNAME}"/cder:v"${VER}"
 #echo 'Changing ver in compose file'
-#sed -i "s/\(cdernode:\)\(.*\)/\$VER/" ./node/docker-compose.yml
-
-
-
+#sed -i "s/\(cdernode:\)\(.*\)/\${VER}/" ./node/docker-compose.yml
