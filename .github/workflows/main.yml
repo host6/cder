@@ -1,9 +1,9 @@
 name: Test build.sh
 
-on: [push]
+on:
   push:
     tags:
-      - 'v*'
+      - v*
 
 jobs:
   build:
